@@ -1,0 +1,51 @@
+#include "stdio.h"
+
+void main()
+{
+	double InterestPaid,
+		Principle,
+		YearlyInterestRate,
+		MonthlyInterestRate,
+		PrinciplePaid,
+		Payment,
+		NewPrinciple,
+		TotalInterestPaid,
+		TotalPayments;
+
+
+	Principle = 10.00;
+	YearlyInterestRate = 12;
+	MonthlyInterestRate = (YearlyInterestRate / 12.0)/100;
+	Payment = 2.00;
+	TotalInterestPaid = 0;
+	TotalPayments = 0;
+
+
+	printf("Principle:  $%.2lf \n", Principle);
+	printf("Interest:   %.0f%% \n", YearlyInterestRate);
+	printf("Payment:    $%.2lf \n\n", Payment);
+	printf(" %19s  %15s  %10s  %10s  \n", "Int", "Principle", "Ending", "Payment");
+	printf(" %9s %10s %13s %14s %10s %12s \n", "Principle", "Paid", "Paid", "Payment", "Balance", "made on");
+	//printf(" %s %11s %11s %11s %11s %11s \n", "__________", "__________", "__________", "__________", "__________", "_________");
+	printf("___________________________________________________________________________\n");
+	while (Principle > 0) {
+		InterestPaid = Principle * MonthlyInterestRate;
+		PrinciplePaid = Payment - InterestPaid;
+		
+		if (PrinciplePaid > Principle) {
+			PrinciplePaid = Principle;
+		}
+		NewPrinciple = Principle - PrinciplePaid;
+		
+		printf("%11.2f %11.2f %11.2f %11.2f %11.2f %15s \n", Principle, InterestPaid, PrinciplePaid, InterestPaid + PrinciplePaid, NewPrinciple, "_________");
+		Principle = NewPrinciple;
+		TotalPayments = TotalPayments + InterestPaid + PrinciplePaid;
+		TotalInterestPaid = TotalInterestPaid + InterestPaid;
+	}
+	printf("___________________________________________________________________________\n");
+	printf("\nThe total amount of payment is $%.2f. \n", TotalPayments);
+	printf("The total interest paid is $%.2f. \n", TotalInterestPaid);
+	printf("\n\n\n\n\n\n");
+
+	return;
+}
