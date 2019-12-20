@@ -4,8 +4,11 @@ It also shows calculations, saving and manipulationg variables. No user input is
 instead the variable values are hard coded. To make this an interactive program would only require a few lines 
 with a scanner.
 
-#Author
+# Author
 Sean Lamont
+
 Summer 2019
+
 Programming Methodology
+
 Florida Gulf Coast University
